@@ -16,4 +16,14 @@ class AppImage {
   //HOME_PAGE
 
   static String mainLogo = "assets/icons/main_logo.png";
+  static String backgroundImageCat =
+      "assets/images/backgroundimage_category.png";
+
+  static String joylashCategory = "assets/images/joylash_category.png";
+  static String newCategory = "assets/images/new_category.png";
+  static String discountCategory = "assets/images/discount_category.png";
+  static String zapchastCategory = "assets/images/zapchast_category.png";
+  static String shopCategory = "assets/images/shop_category.png";
+
+  static String productImage = "assets/images/product_image.png";
 }

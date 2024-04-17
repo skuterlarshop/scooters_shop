@@ -19,20 +19,23 @@ class BuildItems extends ConsumerWidget {
     var con = ref.read(mainNotifier);
     return InkWell(
       onTap: () => con.onItemTapped(index),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          child,
-          Text(
-            text,
-            style: TextStyle(
-              color: con.selectedIndex == index
-                  ? AppColors.color_0157BE
-                  : Colors.grey,
-              fontSize: 10,
-            ),
-          )
-        ],
+      child: SizedBox(
+        width: 60,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            child,
+            Text(
+              text,
+              style: TextStyle(
+                color: con.selectedIndex == index
+                    ? AppColors.color_0157BE
+                    : Colors.grey,
+                fontSize: 10,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

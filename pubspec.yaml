@@ -23,6 +23,12 @@ dependencies:
 
   #statemanagment
   flutter_riverpod: ^2.5.1
+  #search for part
+  flutter_typeahead: ^5.2.0
+  #carousel for banner
+  carousel_slider: ^4.2.1
+
+
 
 dev_dependencies:
   flutter_test:

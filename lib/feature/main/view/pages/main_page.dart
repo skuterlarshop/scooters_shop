@@ -23,10 +23,10 @@ class MainPage extends ConsumerWidget {
       ProfilePage(),
     ];
     return Scaffold(
+      backgroundColor: con.selectedIndex == 0 ? AppColors.color_EEEEEE : null,
       body: pages[con.selectedIndex],
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        elevation: 0,
         backgroundColor: AppColors.color_0157BE,
         shape: const CircleBorder(),
         onPressed: () {},

@@ -4,4 +4,5 @@ class AppIcons {
   static String shoppingCart = "assets/icons/shopping_cart.png";
   static String bubbleChat = "assets/icons/bubble_chat.png";
   static String profileIcon = "assets/icons/profile_icon.png";
+  static String searchIcon = "assets/icons/search_icon.png";
 }
