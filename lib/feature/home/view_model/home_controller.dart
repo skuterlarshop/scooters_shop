@@ -47,4 +47,11 @@ class HomeController with ChangeNotifier {
     currentIndex = index;
     notifyListeners();
   }
+
+  //like button
+  bool isTapped = false;
+  void likeTapped() {
+    isTapped = !isTapped;
+    notifyListeners();
+  }
 }

@@ -15,6 +15,8 @@ class HomeAppBar extends ConsumerWidget {
     ref.watch(homeController);
     var con = ref.read(homeController);
     return SliverAppBar(
+      shadowColor: AppColors.color_000000,
+      elevation: 2,
       pinned: true,
       surfaceTintColor: AppColors.color_EEEEEE,
       backgroundColor: con.focusNode.hasFocus

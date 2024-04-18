@@ -10,6 +10,9 @@ class ShoppingCart extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.color_EEEEEE,
+        elevation: 2,
+        shadowColor: AppColors.color_000000,
+        surfaceTintColor: AppColors.color_EEEEEE,
         centerTitle: false,
         title: Text(
           "Savat",

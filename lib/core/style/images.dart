@@ -24,6 +24,10 @@ class AppImage {
   static String discountCategory = "assets/images/discount_category.png";
   static String zapchastCategory = "assets/images/zapchast_category.png";
   static String shopCategory = "assets/images/shop_category.png";
-
   static String productImage = "assets/images/product_image.png";
+
+  //chat part
+
+  static String emptyChat = "assets/images/chat_icon.png";
+  static String lineChat = "assets/images/line.png";
 }
