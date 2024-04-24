@@ -5,4 +5,6 @@ class AppRounteName {
   static String selectlang = "selectLang";
   static String welcomePage = "welcomePage";
   static String searchPage = "searchPage";
+  static String detailPage = "detailPage";
+  static String profilePage = "profilePage";
 }

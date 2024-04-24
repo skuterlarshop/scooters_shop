@@ -30,4 +30,13 @@ class AppImage {
 
   static String emptyChat = "assets/images/chat_icon.png";
   static String lineChat = "assets/images/line.png";
+
+  //savat
+
+  static String savatImage = "assets/images/savat/savat.png";
+
+  //profile
+
+  static String userProfileBackground =
+      "assets/images/profile/user_back_image.png";
 }

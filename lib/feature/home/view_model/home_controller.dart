@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skuterlar_shop/data/entity/product_model.dart';
 
 final homeController = ChangeNotifierProvider((ref) => HomeController());
 
@@ -33,13 +34,6 @@ class HomeController with ChangeNotifier {
     notifyListeners();
   }
 
-  @override
-  void dispose() {
-    focusNode.removeListener(handleFocusChange);
-    focusNode.dispose();
-    super.dispose();
-  }
-
   //HomeAdabter
 
   int currentIndex = 0;
@@ -48,10 +42,22 @@ class HomeController with ChangeNotifier {
     notifyListeners();
   }
 
-  //like button
-  bool isTapped = false;
-  void likeTapped() {
-    isTapped = !isTapped;
+  int likeIndex = 0;
+  void animatedLike(int value) {
+    likeIndex = value;
     notifyListeners();
+  }
+
+  //like button
+  void likeTapped(ProductModel productModel) {
+    productModel.isLiked = !productModel.isLiked;
+    notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    focusNode.removeListener(handleFocusChange);
+    focusNode.dispose();
+    super.dispose();
   }
 }

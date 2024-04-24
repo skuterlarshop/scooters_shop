@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skuterlar_shop/core/constants/w_button.dart';
+import 'package:skuterlar_shop/core/widgets/w_button.dart';
 import 'package:skuterlar_shop/core/router/route_name.dart';
 import 'package:skuterlar_shop/core/style/colors.dart';
 import 'package:skuterlar_shop/core/style/images.dart';

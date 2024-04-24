@@ -20,7 +20,6 @@ class BuildItems extends ConsumerWidget {
     return InkWell(
       onTap: () => con.onItemTapped(index),
       child: SizedBox(
-        width: 60,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skuterlar_shop/core/router/route_name.dart';
 import 'package:skuterlar_shop/core/style/colors.dart';
 import 'package:skuterlar_shop/core/style/icons.dart';
 import 'package:skuterlar_shop/feature/chat/view/pages/chat_page.dart';
@@ -23,48 +24,99 @@ class MainPage extends ConsumerWidget {
       ProfilePage(),
     ];
     return Scaffold(
-      backgroundColor: con.selectedIndex == 0 ? AppColors.color_EEEEEE : null,
       body: pages[con.selectedIndex],
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.color_0157BE,
         shape: const CircleBorder(),
         onPressed: () {},
         child: Image.asset(AppIcons.addIcon),
       ),
-      bottomNavigationBar: BottomAppBar(
-        height: 70,
-        elevation: 0,
-        color: AppColors.color_FFFFFF,
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 10.0,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            BuildItems(
-              index: 0,
-              text: "Bosh Sahifa",
-              child: Image.asset(AppIcons.homeIcon),
+      bottomNavigationBar: Stack(
+        children: [
+          Image.asset("assets/images/border_bottombar.png"),
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                BuildItems(
+                  index: 0,
+                  text: "Bosh Sahifa",
+                  child: Image.asset(AppIcons.homeIcon),
+                ),
+                BuildItems(
+                  index: 1,
+                  text: "Savat",
+                  child: Image.asset(AppIcons.shoppingCart),
+                ),
+                const SizedBox(width: 48),
+                BuildItems(
+                  index: 2,
+                  text: "Suhbat",
+                  child: Image.asset(AppIcons.bubbleChat),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRounteName.profilePage);
+                  },
+                  child: SizedBox(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Image.asset(AppIcons.profileIcon),
+                        Text(
+                          "Kabinet",
+                          style: TextStyle(
+                            color: con.selectedIndex == 3
+                                ? AppColors.color_0157BE
+                                : Colors.grey,
+                            fontSize: 10,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
-            BuildItems(
-              index: 1,
-              text: "Savat",
-              child: Image.asset(AppIcons.shoppingCart),
-            ),
-            const SizedBox(width: 48),
-            BuildItems(
-              index: 2,
-              text: "Suhbat",
-              child: Image.asset(AppIcons.bubbleChat),
-            ),
-            BuildItems(
-              index: 3,
-              text: "Kabinet",
-              child: Image.asset(AppIcons.profileIcon),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 }
+
+
+
+/*
+
+Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                BuildItems(
+                  index: 0,
+                  text: "Bosh Sahifa",
+                  child: Image.asset(AppIcons.homeIcon),
+                ),
+                BuildItems(
+                  index: 1,
+                  text: "Savat",
+                  child: Image.asset(AppIcons.shoppingCart),
+                ),
+                const SizedBox(width: 48),
+                BuildItems(
+                  index: 2,
+                  text: "Suhbat",
+                  child: Image.asset(AppIcons.bubbleChat),
+                ),
+                BuildItems(
+                  index: 3,
+                  text: "Kabinet",
+                  child: Image.asset(AppIcons.profileIcon),
+                ),
+              ],
+            ),
+
+            */

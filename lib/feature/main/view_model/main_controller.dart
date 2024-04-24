@@ -10,4 +10,9 @@ class MainController with ChangeNotifier {
     selectedIndex = index;
     notifyListeners();
   }
+
+  void tapAndPop() {
+    selectedIndex = 0;
+    notifyListeners();
+  }
 }

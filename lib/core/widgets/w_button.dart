@@ -5,7 +5,7 @@ import 'package:skuterlar_shop/core/style/colors.dart';
 class WButton extends StatelessWidget {
   final void Function()? onPressed;
   final String text;
-  const WButton({super.key, this.onPressed, required this.text});
+  const WButton({super.key, required this.onPressed, required this.text});
 
   @override
   Widget build(BuildContext context) {

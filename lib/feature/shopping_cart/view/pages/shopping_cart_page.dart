@@ -1,27 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:skuterlar_shop/core/style/colors.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skuterlar_shop/data/entity/cart_model.dart';
+import 'package:skuterlar_shop/feature/shopping_cart/view/pages/cart_page.dart';
+import 'package:skuterlar_shop/feature/shopping_cart/view/pages/empty_cart_page.dart';
 
-class ShoppingCart extends StatelessWidget {
+class ShoppingCart extends ConsumerWidget {
   const ShoppingCart({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.color_EEEEEE,
-        elevation: 2,
-        shadowColor: AppColors.color_000000,
-        surfaceTintColor: AppColors.color_EEEEEE,
-        centerTitle: false,
-        title: Text(
-          "Savat",
-          style: GoogleFonts.inriaSans(
-            color: AppColors.color_1E1E1E,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
+  Widget build(BuildContext context, WidgetRef ref) {
+    return cartModels.isEmpty ? const EmptyCartPage() : const Cartpage();
   }
 }
