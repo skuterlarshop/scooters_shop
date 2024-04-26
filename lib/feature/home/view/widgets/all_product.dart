@@ -32,8 +32,8 @@ class WAllProduct extends ConsumerWidget {
           productModels[index].name,
           productModels[index].aboutDvigitel,
           productModels[index].madeYear,
-          cartCon.formatNumber(
-            productModels[index].price,
+          cartCon.formatAmount(
+            productModels[index].price.toString(),
           ),
         ];
         return Stack(

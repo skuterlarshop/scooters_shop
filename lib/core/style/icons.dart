@@ -1,4 +1,3 @@
-
 class AppIcons {
   static String addIcon = "assets/icons/add_icon.png";
   static String homeIcon = "assets/icons/home_icon.png";
@@ -43,4 +42,6 @@ class AppIcons {
   //shopping_cart
 
   static String location_byCart = "assets/icons/cart/location_by_cart.png";
+  static String map_icon = "assets/icons/cart/map.png";
+  static String house_icon = "assets/icons/cart/house_icon.png";
 }

@@ -1,10 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:skuterlar_shop/core/router/route_name.dart';
 import 'package:skuterlar_shop/core/style/colors.dart';
 import 'package:skuterlar_shop/core/style/icons.dart';
 import 'package:skuterlar_shop/data/entity/cart_model.dart';
+import 'package:skuterlar_shop/data/entity/product_model.dart';
+import 'package:skuterlar_shop/feature/detail_page/view/pages/detail_page.dart';
+import 'package:skuterlar_shop/feature/shopping_cart/view/widgets/w_float_button.dart';
+import 'package:skuterlar_shop/feature/shopping_cart/view/widgets/w_result_order.dart';
 import 'package:skuterlar_shop/feature/shopping_cart/view_model/shopping_cart_controller.dart';
 
 class Cartpage extends ConsumerWidget {
@@ -36,17 +40,23 @@ class Cartpage extends ConsumerWidget {
             itemCount: cartModels.length,
             itemBuilder: (context, index) {
               String formattedNumber =
-                  con.formatNumber(cartModels[index].discountPrice);
+                  con.formatAmount(cartModels[index].discountPrice.toString());
               return Padding(
                 padding: const EdgeInsets.only(left: 20, top: 10, right: 10),
                 child: Container(
                   color: AppColors.color_FFFFFF,
                   width: double.maxFinite,
                   child: GestureDetector(
-                    onTap: () => Navigator.pushNamed(
-                      context,
-                      AppRounteName.detailPage,
-                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                          builder: (context) => DetailPage(
+                            productModels[index],
+                          ),
+                        ),
+                      );
+                    },
                     child: Stack(
                       children: [
                         Row(
@@ -232,35 +242,13 @@ class Cartpage extends ConsumerWidget {
               );
             },
           ),
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                Container(
-                  color: AppColors.color_E8E8E8,
-                  height: 10,
-                  width: double.maxFinite,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20, top: 16),
-                  child: Container(
-                    height: 140,
-                    width: double.maxFinite,
-                    decoration: BoxDecoration(
-                      color: AppColors.color_F2F4F7,
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    child: Column(
-                      children: [],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+          const SliverToBoxAdapter(
+            child: WResultOrder(),
           ),
         ],
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: const WFloatButtton(),
     );
   }
 }

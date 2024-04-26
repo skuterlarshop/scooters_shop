@@ -70,5 +70,4 @@ List<CartModel> cartModels = [
     discountPrice: 5190000,
     location: "Toshkent",
   ),
-
 ];

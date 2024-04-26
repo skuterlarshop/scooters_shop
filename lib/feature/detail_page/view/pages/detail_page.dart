@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:skuterlar_shop/core/style/colors.dart';
 import 'package:skuterlar_shop/core/style/icons.dart';
 import 'package:skuterlar_shop/core/style/images.dart';
+import 'package:skuterlar_shop/data/entity/cart_model.dart';
 import 'package:skuterlar_shop/data/entity/product_model.dart';
 import 'package:skuterlar_shop/feature/detail_page/view_model/detail_controller.dart';
 import 'package:skuterlar_shop/feature/home/view_model/home_controller.dart';
@@ -397,7 +398,26 @@ class DetailPage extends ConsumerWidget {
                                       color: AppColors.color_0157BE,
                                     ),
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    num discountPrice =
+                                        productModel.price * 0.8;
+                                    CartModel model = CartModel(
+                                      name: productModel.name,
+                                      image: AppImage.productImage,
+                                      count: detailCon.count,
+                                      color: "Kulrang",
+                                      shopOrUSer: false,
+                                      price: productModel.price,
+                                      discountPrice: discountPrice.toInt(),
+                                      location: productModel.location,
+                                    );
+                                    cartModels.add(model);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content: Text("Savatga qo'shildi"),
+                                      ),
+                                    );
+                                  },
                                 ),
                               ),
                             ),
