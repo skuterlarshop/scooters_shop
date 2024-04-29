@@ -34,9 +34,14 @@ class AppImage {
   //savat
 
   static String savatImage = "assets/images/savat/savat.png";
+  static String verification_image =
+      "assets/images/savat/verification_image.png";
+
+  static String done_order = "assets/images/savat/done.png";
 
   //profile
 
   static String userProfileBackground =
       "assets/images/profile/user_back_image.png";
+  static String myProductImage = "assets/images/profile/myproduct_image.png";
 }

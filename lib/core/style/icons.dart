@@ -44,4 +44,6 @@ class AppIcons {
   static String location_byCart = "assets/icons/cart/location_by_cart.png";
   static String map_icon = "assets/icons/cart/map.png";
   static String house_icon = "assets/icons/cart/house_icon.png";
+  static String black_location = "assets/icons/cart/black_location.png";
+  static String arrow_down = "assets/icons/cart/arrow_down.png";
 }

@@ -17,7 +17,7 @@ class WResultOrder extends ConsumerWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          color: AppColors.color_E8E8E8,
+          color: AppColors.color_F2F4F7,
           height: 10,
           width: double.maxFinite,
         ),

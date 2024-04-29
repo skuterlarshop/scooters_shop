@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:skuterlar_shop/core/router/route_name.dart';
 import 'package:skuterlar_shop/core/style/colors.dart';
 import 'package:skuterlar_shop/core/style/icons.dart';
 import 'package:skuterlar_shop/core/style/images.dart';
@@ -56,6 +57,12 @@ class ProfilePage extends ConsumerWidget {
       "Profilm",
       "Sozlamalar",
       "Mahsulatlarim",
+    ];
+
+    List<String> listPartOne = [
+      AppRounteName.editProfile,
+      AppRounteName.editProfile,
+      AppRounteName.editProfile,
     ];
     return Scaffold(
       body: Column(
@@ -120,7 +127,7 @@ class ProfilePage extends ConsumerWidget {
                       ],
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     SizedBox(
                       height: 100,
@@ -129,47 +136,53 @@ class ProfilePage extends ConsumerWidget {
                         children: List.generate(
                           3,
                           (index) {
-                            return Padding(
-                              padding: const EdgeInsets.only(right: 20),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.grey.withOpacity(0.5),
-                                          spreadRadius: 5,
-                                          blurRadius: 7,
-                                          offset: const Offset(
-                                            0,
-                                            3,
-                                          ), // Pastga soyini tushirib berish
-                                        ),
-                                      ],
-                                    ),
-                                    child: CircleAvatar(
-                                      backgroundColor: AppColors.color_FFFFFF,
-                                      radius: 40,
-                                      child: SizedBox(
-                                        height: 40,
-                                        width: 40,
-                                        child: Image.asset(
-                                          iconProfile[index],
+                            return InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, AppRounteName.myProduct);
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 20),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.5),
+                                            spreadRadius: 5,
+                                            blurRadius: 7,
+                                            offset: const Offset(
+                                              0,
+                                              3,
+                                            ), // Pastga soyini tushirib berish
+                                          ),
+                                        ],
+                                      ),
+                                      child: CircleAvatar(
+                                        backgroundColor: AppColors.color_FFFFFF,
+                                        radius: 40,
+                                        child: SizedBox(
+                                          height: 40,
+                                          width: 40,
+                                          child: Image.asset(
+                                            iconProfile[index],
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  const SizedBox(
-                                    height: 4,
-                                  ),
-                                  Text(
-                                    titleIcons[index],
-                                    style: GoogleFonts.inriaSans(
-                                      fontSize: 10,
+                                    const SizedBox(
+                                      height: 4,
                                     ),
-                                  ),
-                                ],
+                                    Text(
+                                      titleIcons[index],
+                                      style: GoogleFonts.inriaSans(
+                                        fontSize: 10,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             );
                           },
@@ -198,24 +211,32 @@ class ProfilePage extends ConsumerWidget {
                       const SizedBox(
                         height: 2,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Image.asset(
-                                icons[index],
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                tittles[index],
-                              ),
-                            ],
-                          ),
-                          arrows[index],
-                        ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            listPartOne[index],
+                          );
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Image.asset(
+                                  icons[index],
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  tittles[index],
+                                ),
+                              ],
+                            ),
+                            arrows[index],
+                          ],
+                        ),
                       ),
                     ],
                   );

@@ -7,6 +7,7 @@ import 'package:skuterlar_shop/core/style/icons.dart';
 import 'package:skuterlar_shop/data/entity/cart_model.dart';
 import 'package:skuterlar_shop/data/entity/product_model.dart';
 import 'package:skuterlar_shop/feature/detail_page/view/pages/detail_page.dart';
+import 'package:skuterlar_shop/feature/shopping_cart/view/widgets/enter_order_information.dart';
 import 'package:skuterlar_shop/feature/shopping_cart/view/widgets/w_float_button.dart';
 import 'package:skuterlar_shop/feature/shopping_cart/view/widgets/w_result_order.dart';
 import 'package:skuterlar_shop/feature/shopping_cart/view_model/shopping_cart_controller.dart';
@@ -242,8 +243,10 @@ class Cartpage extends ConsumerWidget {
               );
             },
           ),
-          const SliverToBoxAdapter(
-            child: WResultOrder(),
+          SliverToBoxAdapter(
+            child: con.isChanged
+                ? const WResultOrder()
+                : const EnterOrderInformation(),
           ),
         ],
       ),

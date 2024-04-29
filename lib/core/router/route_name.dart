@@ -7,4 +7,8 @@ class AppRounteName {
   static String searchPage = "searchPage";
   static String detailPage = "detailPage";
   static String profilePage = "profilePage";
+  static String verifyPage = "verifyPage";
+  static String doneOrder = "doneOrder";
+  static String editProfile = "editProfile";
+  static String myProduct = "myProduct";
 }

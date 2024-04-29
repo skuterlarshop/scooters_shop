@@ -30,7 +30,12 @@ dependencies:
   # for svgImage 
   flutter_svg: ^2.0.10+1
   #
-  intl: ^0.19.0
+  popover: ^0.3.0
+  #format text
+  flutter_multi_formatter: ^2.12.8
+
+  #yandex_map
+
 
 
 

@@ -60,14 +60,4 @@ List<CartModel> cartModels = [
     discountPrice: 5190000,
     location: "Toshkent",
   ),
-  CartModel(
-    name: "Elektr skuter 2137 kg",
-    image: "assets/images/savat/product_image.png",
-    count: 1,
-    color: "Oq",
-    shopOrUSer: false,
-    price: 8109000,
-    discountPrice: 5190000,
-    location: "Toshkent",
-  ),
 ];

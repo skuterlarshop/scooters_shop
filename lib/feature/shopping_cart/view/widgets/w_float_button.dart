@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:skuterlar_shop/core/router/route_name.dart';
 import 'package:skuterlar_shop/core/style/colors.dart';
 import 'package:skuterlar_shop/data/entity/cart_model.dart';
 import 'package:skuterlar_shop/feature/shopping_cart/view_model/shopping_cart_controller.dart';
@@ -71,7 +72,9 @@ class WFloatButtton extends ConsumerWidget {
                     color: AppColors.color_FFFFFF,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRounteName.verifyPage);
+                },
               ),
             ),
           ],
