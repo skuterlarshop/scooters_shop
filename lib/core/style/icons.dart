@@ -5,6 +5,7 @@ class AppIcons {
   static String bubbleChat = "assets/icons/bubble_chat.png";
   static String profileIcon = "assets/icons/profile_icon.png";
   static String searchIcon = "assets/icons/search_icon.png";
+  static String arrow_back = "assets/icons/back_arrow.png";
 
   //Product_Icons
   static String typeIcon = "assets/icons/product_icons/type.png";
@@ -46,4 +47,9 @@ class AppIcons {
   static String house_icon = "assets/icons/cart/house_icon.png";
   static String black_location = "assets/icons/cart/black_location.png";
   static String arrow_down = "assets/icons/cart/arrow_down.png";
+
+  //login
+
+  static String user_icon = "assets/icons/login/user_icon.png";
+  static String dokon_icon = "assets/icons/login/registor_shop_icon.png";
 }

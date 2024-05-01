@@ -33,8 +33,10 @@ dependencies:
   popover: ^0.3.0
   #format text
   flutter_multi_formatter: ^2.12.8
+  # responsibility
+  flutter_screenutil: ^5.9.0
 
-  #yandex_map
+  
 
 
 
@@ -62,6 +64,7 @@ flutter:
     - assets/images/profile/
     - assets/icons/profile/
     - assets/icons/cart/
+    - assets/icons/login/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

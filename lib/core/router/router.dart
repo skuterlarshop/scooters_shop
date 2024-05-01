@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skuterlar_shop/core/router/route_name.dart';
+import 'package:skuterlar_shop/feature/auth/view/pages/login_page.dart';
 import 'package:skuterlar_shop/feature/home/view/pages/search_page.dart';
 import 'package:skuterlar_shop/feature/main/view/pages/main_page.dart';
 import 'package:skuterlar_shop/feature/onbording/view/pages/onboarding_page.dart';
@@ -25,5 +26,6 @@ class AppRoute {
     AppRounteName.doneOrder: (context) => const DoneOrder(),
     AppRounteName.editProfile: (context) => const EditProfie(),
     AppRounteName.myProduct: (context) => const ProductsPage(),
+    AppRounteName.loginPage: (context) => const LoginPage(),
   };
 }

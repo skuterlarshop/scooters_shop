@@ -11,4 +11,5 @@ class AppRounteName {
   static String doneOrder = "doneOrder";
   static String editProfile = "editProfile";
   static String myProduct = "myProduct";
+  static String loginPage = "loginPage";
 }
