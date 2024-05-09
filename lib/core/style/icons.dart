@@ -52,4 +52,10 @@ class AppIcons {
 
   static String user_icon = "assets/icons/login/user_icon.png";
   static String dokon_icon = "assets/icons/login/registor_shop_icon.png";
+  static String shina_icon = "assets/icons/login/shina_icon.png";
+  static String moy_icon = "assets/icons/login/moy_icon.png";
+  static String aks_elektronik = "assets/icons/login/aks_elektronik.png";
+  static String diska_icon = "assets/icons/login/diska.png";
+  static String led_icon = "assets/icons/login/led_chiroq.png";
+  static String boshqa_icon = "assets/icons/login/boshqa_icon.png";
 }

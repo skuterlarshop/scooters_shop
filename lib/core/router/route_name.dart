@@ -12,4 +12,6 @@ class AppRounteName {
   static String editProfile = "editProfile";
   static String myProduct = "myProduct";
   static String loginPage = "loginPage";
+  static String announcePage = "announcePage";
+  static String enterAdInfoPage = "enterAdInfoPage";
 }

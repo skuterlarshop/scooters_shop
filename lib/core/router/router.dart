@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:skuterlar_shop/core/router/route_name.dart';
+import 'package:skuterlar_shop/feature/announce/view/pages/enter_ad_info.dart';
 import 'package:skuterlar_shop/feature/auth/view/pages/login_page.dart';
 import 'package:skuterlar_shop/feature/home/view/pages/search_page.dart';
 import 'package:skuterlar_shop/feature/main/view/pages/main_page.dart';
 import 'package:skuterlar_shop/feature/onbording/view/pages/onboarding_page.dart';
+import 'package:skuterlar_shop/feature/announce/view/pages/announce_page.dart';
 import 'package:skuterlar_shop/feature/profile/view/pages/edit_profile.dart';
 import 'package:skuterlar_shop/feature/profile/view/pages/mahsulotlarim_page.dart';
 import 'package:skuterlar_shop/feature/profile/view/pages/profile_page.dart';
@@ -27,5 +29,7 @@ class AppRoute {
     AppRounteName.editProfile: (context) => const EditProfie(),
     AppRounteName.myProduct: (context) => const ProductsPage(),
     AppRounteName.loginPage: (context) => const LoginPage(),
+    AppRounteName.announcePage: (context) => const AnnouncePage(),
+    AppRounteName.enterAdInfoPage: (context) => const EnterAdInfo(),
   };
 }

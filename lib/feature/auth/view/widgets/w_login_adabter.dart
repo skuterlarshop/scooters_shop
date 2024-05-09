@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:skuterlar_shop/core/style/colors.dart';
 import 'package:skuterlar_shop/core/style/icons.dart';
-import 'package:skuterlar_shop/core/widgets/w_button.dart';
 import 'package:skuterlar_shop/core/widgets/w_textfield.dart';
 import 'package:skuterlar_shop/feature/auth/view/widgets/custom_container.dart';
 
