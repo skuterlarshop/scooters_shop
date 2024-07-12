@@ -1,7 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skuterlar_shop/app.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
+import "runner.dart" as run;
 
-void main() {
-  runApp(const ProviderScope(child: MyApp()));
+@pragma("vm:entry-point")
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  run.run();
 }

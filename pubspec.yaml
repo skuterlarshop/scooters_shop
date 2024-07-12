@@ -23,18 +23,37 @@ dependencies:
 
   #statemanagment
   flutter_riverpod: ^2.5.1
+
   #search for part
   flutter_typeahead: ^5.2.0
+
   #carousel for banner
   carousel_slider: ^4.2.1
+
   # for svgImage 
   flutter_svg: ^2.0.10+1
+
   #
   popover: ^0.3.0
+
   #format text
   flutter_multi_formatter: ^2.12.8
+
   # responsibility
   flutter_screenutil: ^5.9.0
+
+  # for seamless localization management.
+  easy_localization: ^3.0.7
+
+  http: ^1.2.1
+  #for locale store
+  flutter_secure_storage: ^9.2.2
+  shared_preferences: ^2.2.3
+
+  http_interceptor: ^2.0.0-beta.8
+
+  l: ^4.0.2
+  package_info_plus: ^8.0.0
 
   
 
@@ -65,6 +84,9 @@ flutter:
     - assets/icons/profile/
     - assets/icons/cart/
     - assets/icons/login/
+    - assets/translations/
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
