@@ -18,11 +18,11 @@ class LoginPage extends StatelessWidget {
           WLoginAdabter(),
         ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: WButton(onPressed: () {}, text: "Keyingisi".tr()),
-      ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: Padding(
+      //   padding: const EdgeInsets.symmetric(horizontal: 20),
+      //   child: WButton(onPressed: () {}, text: "Keyingisi".tr()),
+      // ),
     );
   }
 }

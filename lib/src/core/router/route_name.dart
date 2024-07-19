@@ -14,4 +14,5 @@ class AppRounteName {
   static String loginPage = "loginPage";
   static String announcePage = "announcePage";
   static String enterAdInfoPage = "enterAdInfoPage";
+  static String verificationPage = "verificationPage";
 }

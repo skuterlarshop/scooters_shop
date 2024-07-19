@@ -1,19 +1,44 @@
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:skuterlar_shop/src/core/router/route_name.dart';
 import 'package:skuterlar_shop/src/core/style/icons.dart';
 import 'package:skuterlar_shop/src/core/widgets/w_textfield.dart';
 import 'package:skuterlar_shop/src/feature/auth/view/widgets/custom_container.dart';
+import 'package:skuterlar_shop/src/feature/auth/view_model/auth_controller.dart';
 
 import '../../../../core/style/colors.dart';
+import '../../../../core/widgets/w_button.dart';
+import '../../../../data/entity/userModel.dart';
 
-class WLoginAdabter extends StatelessWidget {
-  const WLoginAdabter({super.key});
+class WLoginAdabter extends ConsumerWidget {
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
+  final TextEditingController marketNameController = TextEditingController();
+
+  void registerUser(BuildContext context, WidgetRef ref, int userType) {
+    final AuthController authController =
+        ref.read(authControllerProvider.notifier);
+    final UserModel user = UserModel(
+      firstName: firstNameController.text,
+      lastName: lastNameController.text,
+      userType: userType,
+      phoneNumber: "998${phoneNumberController.text}",
+      marketName: marketNameController.text,
+    );
+
+    authController.registerUser(user);
+  }
+
+  WLoginAdabter({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authState = ref.watch(authControllerProvider);
     return SliverToBoxAdapter(
-
       child: Container(
         color: const Color(0xFFFFFFFF),
         child: Column(
@@ -83,7 +108,8 @@ class WLoginAdabter extends StatelessWidget {
                           height: 4,
                         ),
                         Text(
-                          "Iltimos quydagi katigoriyalarni to’ldirishingizni so’raymiz".tr(),
+                          "Iltimos quydagi katigoriyalarni to’ldirishingizni so’raymiz"
+                              .tr(),
                           style: GoogleFonts.inriaSans(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
@@ -109,7 +135,8 @@ class WLoginAdabter extends StatelessWidget {
                   const SizedBox(
                     height: 6,
                   ),
-                  const WTextfield(
+                  WTextfield(
+                    controller: phoneNumberController,
                     height: 54,
                     hintText: "",
                     trueBorder: true,
@@ -131,7 +158,8 @@ class WLoginAdabter extends StatelessWidget {
                   const SizedBox(
                     height: 6,
                   ),
-                  const WTextfield(
+                  WTextfield(
+                    controller: firstNameController,
                     height: 54,
                     hintText: "",
                     trueBorder: true,
@@ -151,7 +179,8 @@ class WLoginAdabter extends StatelessWidget {
                   const SizedBox(
                     height: 6,
                   ),
-                  const WTextfield(
+                  WTextfield(
+                    controller: lastNameController,
                     height: 54,
                     hintText: "",
                     trueBorder: true,
@@ -162,7 +191,8 @@ class WLoginAdabter extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
-                      "Ushbu Hamkorlik bilan siz ko’plab qulayliklarga erishishingiz mumkin".tr(),
+                      "Ushbu Hamkorlik bilan siz ko’plab qulayliklarga erishishingiz mumkin"
+                          .tr(),
                       style: TextStyle(
                         fontSize: 14,
                         color: AppColors.color_000000,
@@ -171,10 +201,19 @@ class WLoginAdabter extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 30),
-                  // WButton(
-                  //   onPressed: () {},
-                  //   text: "Keyingi",
-                  // ),
+                  if (authState.isLoading) const CircularProgressIndicator(),
+                  if (!authState.isLoading)
+                    WButton(
+                      onPressed: () {
+                        registerUser(context, ref, 1);
+                        Navigator.pushNamed(
+                          context,
+                          AppRounteName.verificationPage,
+                          arguments: phoneNumberController.text,
+                        );
+                      },
+                      text: "Keyingi".tr(),
+                    ),
                 ],
               ),
             ),

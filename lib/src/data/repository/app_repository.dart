@@ -1,15 +1,8 @@
+import 'package:skuterlar_shop/src/data/entity/confirm_code_model.dart';
 
-import 'package:skuterlar_shop/src/data/entity/productRequestModel.dart';
+import '../entity/userModel.dart';
 
-import '../entity/loginUser.dart';
-
-abstract class AppRepository{
-
-  Future<List<ProductRequestModel>>getProductList();
-
-  Future<String?>getPosts();
-
-
-  Future<LoginUser?>loginUser({required String phoneNumber});
+abstract class AppRepository {
+  Future<String?> registerUser(UserModel user);
+  Future<String?> verifyUser(ConfirmCodeModel confirmModel);
 }
-

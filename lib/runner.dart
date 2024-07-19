@@ -15,35 +15,38 @@ import "setup.dart";
 void run() => l.capture<void>(
       () => runZonedGuarded<Future<void>>(
         () async {
-      final InitializationExecutor initialization = InitializationExecutor();
-      await setup();
-      runApp(
-        DependenciesScope(
-          initialization: initialization(
-            orientations: <DeviceOrientation>[
-              DeviceOrientation.portraitUp,
-              DeviceOrientation.portraitDown,
-            ],
-          ),
-          child: ProviderScope(
-            child: EasyLocalization(
-              supportedLocales: const [ Locale('uz'),  Locale('ru')],
-              path:
-              'assets/translations', // <-- change the path of the translation files
-              fallbackLocale: const Locale('ru'),
-              child: const MyApp(),
+          WidgetsFlutterBinding.ensureInitialized();
+          await EasyLocalization.ensureInitialized();
+          final InitializationExecutor initialization =
+              InitializationExecutor();
+          await setup();
+          runApp(
+            DependenciesScope(
+              initialization: initialization(
+                orientations: <DeviceOrientation>[
+                  DeviceOrientation.portraitUp,
+                  DeviceOrientation.portraitDown,
+                ],
+              ),
+              child: ProviderScope(
+                child: EasyLocalization(
+                  supportedLocales: const [Locale('uz'), Locale('ru')],
+                  path:
+                      'assets/translations', // <-- change the path of the translation files
+                  fallbackLocale: const Locale('uz'),
+                  child: const MyApp(),
+                ),
+              ),
             ),
-          ),
-        ),
-      );
-    },
+          );
+        },
         (Object error, StackTrace stackTrace) => ErrorUtil.logError(
-      error,
-      stackTrace,
-      hint: "ROOT | ",
-    ),
-  ),
-  const LogOptions(
-    outputInRelease: true,
-  ),
-);
+          error,
+          stackTrace,
+          hint: "ROOT | ",
+        ),
+      ),
+      const LogOptions(
+        outputInRelease: true,
+      ),
+    );

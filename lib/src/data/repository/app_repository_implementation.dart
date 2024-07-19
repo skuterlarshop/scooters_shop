@@ -1,46 +1,56 @@
+// ignore_for_file: use_build_context_synchronously, unnecessary_string_interpolations
 
-import 'package:skuterlar_shop/src/data/entity/productRequestModel.dart';
-
-import '../../core/server/api.dart';
-import '../../core/server/api_constants.dart';
-import '../entity/loginUser.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:skuterlar_shop/src/data/entity/confirm_code_model.dart';
+import 'package:skuterlar_shop/src/data/entity/userModel.dart';
+import '../../core/service/api/api.dart';
 import 'app_repository.dart';
 
-class AppRepositoryImpl implements AppRepository{
+@immutable
+final class AppRepositoryImpl implements AppRepository {
+  static const AppRepositoryImpl _impl = AppRepositoryImpl._internal();
+
+  const AppRepositoryImpl._internal();
+
+  factory AppRepositoryImpl() => _impl;
 
   @override
-  Future<List<ProductRequestModel>> getProductList() async{
-    String? str = await Api.getData(api: ApiConstants.apiGetDataList, param: ApiConstants.paramEmpty());
-    if(str != null){
-      List<ProductRequestModel> dataList = productRequestModelFromJson(str);
-      return dataList;
-    }else{
-      return [];
-    }
-  }
+  Future<String?> registerUser(UserModel user) async {
+    const String api =
+        'http://scooterelon.uz:3636/ClientAuth/Register/RegisterNumber'; // Replace with your actual API endpoint
+    final Map<String, dynamic> data = user.toJson();
 
-  @override
-  Future<LoginUser?> loginUser({required String phoneNumber}) async{
-    String? str = await Api.postData(api: ApiConstants.apiAuthLogin, param: ApiConstants.paramEmpty(), data: ApiConstants.bodyLoginUser(phoneNumber: phoneNumber));
-    if(str != null){
-      LoginUser loginUser = loginUserFromJson(str);
-      return loginUser;
-    }else{
+    try {
+      final String? response = await ApiService.post(api, data);
+      return response;
+    } on DioException catch (e) {
+      // Handle Dio-specific errors
+      print('DioError: ${e.response}');
+      return null;
+    } catch (e) {
+      // Handle other errors
+      print('Error: $e');
       return null;
     }
   }
 
   @override
-  Future<String?> getPosts() async{
-    String? str = await Api.getData(api: ApiConstants.apiGetDataList, param: ApiConstants.paramEmpty());
-    if(str != null){
-      return str;
-    }else{
+  Future<String?> verifyUser(ConfirmCodeModel confirmCodeModel) async {
+    const String api =
+        'http://scooterelon.uz:3636/ClientAuth/ConfirmCode/ConfirmCode';
+    final Map<String, dynamic> data = confirmCodeModel.toJson();
+
+    try {
+      final String? response = await ApiService.post(api, data);
+      return response;
+    } on DioError catch (e) {
+      print('DioError: ${e.response}');
+      return null;
+    } catch (e) {
+      print('Error: $e');
       return null;
     }
   }
-
-
-
-
 }

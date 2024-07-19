@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:skuterlar_shop/setup.dart';
 import 'package:skuterlar_shop/src/core/router/route_name.dart';
 import 'package:skuterlar_shop/src/core/router/router.dart';
 
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      initialRoute:AppRounteName.onboardingPage,
+      initialRoute:AppRounteName.loginPage,
       routes: AppRoute.routes,
     );
   }
