@@ -45,7 +45,7 @@ final class AppRepositoryImpl implements AppRepository {
     try {
       final String? response = await ApiService.post(api, data);
       return response;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       print('DioError: ${e.response}');
       return null;
     } catch (e) {
