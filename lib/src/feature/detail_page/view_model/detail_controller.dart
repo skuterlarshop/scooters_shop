@@ -1,6 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+class ProductDetailState {
+  final bool isLoading;
+  final String? responseMessage;
+
+  ProductDetailState({required this.isLoading, this.responseMessage});
+
+  ProductDetailState copyWith({bool? isLoading, String? responseMessage}) {
+    return ProductDetailState(
+      isLoading: isLoading ?? this.isLoading,
+      responseMessage: responseMessage ?? this.responseMessage,
+    );
+  }
+}
+
 final detailController = ChangeNotifierProvider((ref) => DetailController());
 
 class DetailController with ChangeNotifier {

@@ -1,11 +1,9 @@
-// ignore_for_file: use_build_context_synchronously, unnecessary_string_interpolations
-
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:skuterlar_shop/src/data/entity/confirm_code_model.dart';
 import 'package:skuterlar_shop/src/data/entity/userModel.dart';
 import '../../core/service/api/api.dart';
+import '../entity/productRequestModel.dart';
 import 'app_repository.dart';
 
 @immutable
@@ -26,7 +24,6 @@ final class AppRepositoryImpl implements AppRepository {
       final String? response = await ApiService.post(api, data);
       return response;
     } on DioException catch (e) {
-      // Handle Dio-specific errors
       print('DioError: ${e.response}');
       return null;
     } catch (e) {
@@ -50,6 +47,30 @@ final class AppRepositoryImpl implements AppRepository {
       return null;
     } catch (e) {
       print('Error: $e');
+      return null;
+    }
+  }
+
+
+  //add product function
+  @override
+  Future<String?> postProductRequest(ProductRequestModel product) async {
+    const String api = 'http://scooterelon.uz:3636/Product/Add/AddProduct';
+    final Map<String, dynamic> data = product.toJson();
+
+    try {
+      final String? response = await ApiService.post(api, data);
+      return response;
+    } on DioException catch (e) {
+      if (kDebugMode) {
+        print('DioError: ${e.response}');
+      }
+      return null;
+    } catch (e) {
+      // Handle other errors
+      if (kDebugMode) {
+        print('Error: $e');
+      }
       return null;
     }
   }

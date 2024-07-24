@@ -1,4 +1,3 @@
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -38,6 +37,12 @@ class WLoginAdabter extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final authState = ref.watch(authControllerProvider);
+    List<String> userType = ["Foydalanuvchi", "Do'kon"];
+    List<String> userIconType = [AppIcons.user_icon, AppIcons.dokon_icon];
+    List<bool> userTypeCheck = [false, false];
+    late final int selectIndex;
+    final AuthController authController =
+    ref.read(authControllerProvider.notifier);
     return SliverToBoxAdapter(
       child: Container(
         color: const Color(0xFFFFFFFF),
@@ -64,16 +69,19 @@ class WLoginAdabter extends ConsumerWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  WContainer(
-                    text: "Foydalanuvchi".tr(),
-                    image: AppIcons.user_icon,
-                  ),
-                  WContainer(
-                    text: "Do'kon".tr(),
-                    image: AppIcons.dokon_icon,
-                  ),
-                ],
+                children: List.generate(
+                  2,
+                  (index) {
+                    final isPressed = authState.pressedButtonIndex == index;
+                    return WContainer(
+                      onTap: () {
+                        authController.setPressedButtonIndex(index);
+                      },
+                      text: userType[index].tr(),
+                      image: userIconType[index], isButtonPressed: isPressed,
+                    );
+                  },
+                ),
               ),
             ),
             const SizedBox(

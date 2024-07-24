@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      initialRoute:AppRounteName.loginPage,
+      initialRoute:AppRounteName.onboardingPage,
       routes: AppRoute.routes,
     );
   }

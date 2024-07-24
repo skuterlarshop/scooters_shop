@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:skuterlar_shop/setup.dart';
+import 'package:skuterlar_shop/src/core/router/route_name.dart';
 import 'package:skuterlar_shop/src/core/style/colors.dart';
 import 'package:skuterlar_shop/src/core/style/icons.dart';
 import 'package:skuterlar_shop/src/feature/announce/view_model/announce_controller.dart';
@@ -55,10 +57,26 @@ class WAnnounceAdapter extends ConsumerWidget {
                 WContainer(
                   text: "Foydalanuvchi".tr(),
                   image: AppIcons.user_icon,
+                  isButtonPressed: false,
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context,
+                        token != null
+                            ? AppRounteName.enterAdInfoPage
+                            : AppRounteName.loginPage);
+                  },
                 ),
                 WContainer(
                   text: "Do'kon".tr(),
                   image: AppIcons.dokon_icon,
+                  isButtonPressed: false,
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context,
+                        token != null
+                            ? AppRounteName.enterAdInfoPage
+                            : AppRounteName.loginPage);
+                  },
                 ),
               ],
             ),

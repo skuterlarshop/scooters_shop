@@ -20,7 +20,7 @@ class VerificationPage extends ConsumerWidget {
     authController.verifyUser(confirm).then((_) {
       final authState = ref.read(authControllerProvider);
       if (authState.token != null) {
-        Navigator.pushReplacementNamed(context, AppRounteName.doneOrder);
+        Navigator.pushReplacementNamed(context, AppRounteName.announcePage);
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(authState.responseMessage ?? 'Verification failed')),

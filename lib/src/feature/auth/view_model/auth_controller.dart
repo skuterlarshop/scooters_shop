@@ -1,24 +1,35 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skuterlar_shop/src/data/entity/confirm_code_model.dart';
-import 'package:skuterlar_shop/src/data/repository/app_repository_implementation.dart';
 
 import '../../../core/service/local/app_storage.dart';
+import '../../../data/entity/confirm_code_model.dart';
 import '../../../data/entity/userModel.dart';
 import '../../../data/repository/app_repository.dart';
+import '../../../data/repository/app_repository_implementation.dart';
 
 class AuthState {
   final bool isLoading;
   final String? responseMessage;
   final String? token;
+  final int? pressedButtonIndex; // Add the index of the pressed button
 
-  AuthState({required this.isLoading, this.responseMessage, this.token});
+  AuthState({
+    required this.isLoading,
+    this.responseMessage,
+    this.token,
+    this.pressedButtonIndex, // Set default value to null
+  });
 
-  AuthState copyWith(
-      {bool? isLoading, String? responseMessage, String? token}) {
+  AuthState copyWith({
+    bool? isLoading,
+    String? responseMessage,
+    String? token,
+    int? pressedButtonIndex, // Add this to copyWith method
+  }) {
     return AuthState(
       isLoading: isLoading ?? this.isLoading,
       responseMessage: responseMessage ?? this.responseMessage,
       token: token ?? this.token,
+      pressedButtonIndex: pressedButtonIndex ?? this.pressedButtonIndex, // Add this line
     );
   }
 }
@@ -27,6 +38,11 @@ class AuthController extends StateNotifier<AuthState> {
   AuthController(this.appRepository) : super(AuthState(isLoading: false));
 
   final AppRepository appRepository;
+
+// Method to set the pressed button index
+  void setPressedButtonIndex(int index) {
+    state = state.copyWith(pressedButtonIndex: index);
+  }
 
   Future<void> registerUser(UserModel user) async {
     state = state.copyWith(isLoading: true);
@@ -46,6 +62,7 @@ class AuthController extends StateNotifier<AuthState> {
       );
     }
   }
+
   Future<void> verifyUser(ConfirmCodeModel confirmCodeModel) async {
     state = state.copyWith(isLoading: true);
 
@@ -65,7 +82,7 @@ class AuthController extends StateNotifier<AuthState> {
 }
 
 final authControllerProvider = StateNotifierProvider<AuthController, AuthState>(
-  (ref) {
+      (ref) {
     return AuthController(AppRepositoryImpl());
   },
 );

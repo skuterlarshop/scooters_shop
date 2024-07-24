@@ -58,4 +58,8 @@ class AppIcons {
   static String diska_icon = "assets/icons/login/diska.png";
   static String led_icon = "assets/icons/login/led_chiroq.png";
   static String boshqa_icon = "assets/icons/login/boshqa_icon.png";
+
+  // add product
+  static String frame_icon = "assets/icons/ramka.png";
+  static String add_image_icon = "assets/icons/add_image_icon.png";
 }
